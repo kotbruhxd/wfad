@@ -28,7 +28,7 @@ class AudioPlayer extends AudioPlayerEvents {
   /// **NOTE:** If an [id] is used for the first time, a new instance of audio player will be created.
   /// If the provided [id] was already used before, no new audio player will be created.
 
-  AudioPlayer({int id: 0, AudioDevice device}) {
+  AudioPlayer({int id = 0, AudioDevice? device}) {
     this.id = id;
     if (device == null) {
       this.deviceId = 'default';
@@ -186,6 +186,14 @@ class AudioPlayer extends AudioPlayerEvents {
         },
       );
     }
+  }
+
+  Future<void> unload() async {
+    await stop();
+  }
+
+  Future<void> dispose() async {
+    await stop();
   }
 
   Future<Audio> _notifyCurrentAudioState() async {

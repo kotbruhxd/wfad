@@ -20,7 +20,7 @@ class AudioSource {
   /// ```
   ///
 
-  AudioSource({@required this.file});
+  AudioSource({required this.file});
 
   /// ### Creates a new audio source using File.
   ///

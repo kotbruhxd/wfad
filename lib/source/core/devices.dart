@@ -30,8 +30,8 @@ class AudioDevices {
       if (id != 'default')
         devices.add(
           new AudioDevice(
-            id?.toString(),
-            name?.toString(),
+            id.toString(),
+            name.toString(),
           ),
         );
     });
@@ -47,7 +47,7 @@ class AudioDevices {
   /// ```
   ///
   static Future<AudioDevice> get defaultDevice async {
-    AudioDevice defaultDevice;
+    AudioDevice? defaultDevice;
     var devicesMap = await channel.invokeMethod(
       'getDevices',
       {},
@@ -55,13 +55,13 @@ class AudioDevices {
     devicesMap.forEach((id, name) {
       if (id == 'default')
         defaultDevice = new AudioDevice(
-          id?.toString(),
-          name?.toString(),
+          id.toString(),
+          name.toString(),
         );
     });
     if (defaultDevice == null) {
       throw 'EXCEPTION: Could not find the default device.';
     }
-    return defaultDevice;
+    return defaultDevice!;
   }
 }

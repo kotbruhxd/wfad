@@ -2,7 +2,7 @@ import 'dart:io';
 
 class Audio {
   /// Currently loaded [File].
-  File file;
+  File? file;
 
   /// Current playback state of audio player.
   bool isPlaying;
@@ -21,9 +21,9 @@ class Audio {
 
   Audio(
       {this.file,
-      this.isPlaying,
-      this.isStopped,
-      this.isCompleted,
-      this.position,
-      this.duration});
+      this.isPlaying = false,
+      this.isStopped = true,
+      this.isCompleted = false,
+      this.position = Duration.zero,
+      this.duration = Duration.zero});
 }

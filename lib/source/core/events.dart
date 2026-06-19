@@ -5,16 +5,16 @@ import 'package:flutter_audio_desktop/source/types/audio.dart';
 
 class AudioPlayerInternal {
   /// Unique ID of the audio player instance.
-  int id;
+  late int id;
 
   /// Device ID of the device ,to which the audio player is playing.
-  String deviceId;
+  late String deviceId;
 
   /// Broadcast stream to listen to playback events e.g. completion, loading, play/pause etc.
-  Stream<Audio> stream;
+  late Stream<Audio> stream;
 
   /// Current playback state of audio player.
-  Audio audio;
+  late Audio audio;
 }
 
 class AudioPlayerGetters extends AudioPlayerInternal {
